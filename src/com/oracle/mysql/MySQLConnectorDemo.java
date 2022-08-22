@@ -9,7 +9,7 @@ import java.sql.Statement;
 
 public class MySQLConnectorDemo {
 
-	public static void main(String[] args) throws SQLException, ClassNotFoundException {
+	public static void main(String[] args) {
 
 		System.out.println("Start");
 
@@ -23,31 +23,33 @@ public class MySQLConnectorDemo {
 		Statement stmt = null;
 		ResultSet rs = null;
 
-		con = DriverManager.getConnection(url, user, password);
+		try {
+			con = DriverManager.getConnection(url, user, password);
 
-		stmt = con.createStatement();
-		
-//		stmt. method for performing CRUD operations on DB 
+			stmt = con.createStatement();
 
-		rs = stmt.executeQuery(sql);
+//			stmt. method for performing CRUD operations on DB 
 
-		ResultSetMetaData rsmd = rs.getMetaData();
+			rs = stmt.executeQuery(sql);
 
-		while (rs.next()) {
+			ResultSetMetaData rsmd = rs.getMetaData();
 
-			for (int i = 1; i <= rsmd.getColumnCount(); i++) {
-				System.out.print(rs.getString(i) + "\t");
+			while (rs.next()) {
+
+				for (int i = 1; i <= rsmd.getColumnCount(); i++) {
+					System.out.print(rs.getString(i) + "\t");
+				}
+
+				System.out.println("");
+				rs.close();
+				stmt.close();
+				con.close();
 			}
 
-			System.out.println("");
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
 		}
 
-		rs.close();
-		stmt.close();
-		con.close();
-		
 		System.out.println("End");
 	}
 }
-
-
