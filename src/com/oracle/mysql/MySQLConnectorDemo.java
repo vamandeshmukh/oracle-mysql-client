@@ -16,6 +16,7 @@ public class MySQLConnectorDemo {
 		String url = "jdbc:mysql://localhost:3306/oracle-demo";
 		String user = "root";
 		String password = "root";
+
 		String sql = "SELECT * FROM emp";
 
 		Connection con = null;
@@ -23,21 +24,21 @@ public class MySQLConnectorDemo {
 		ResultSet rs = null;
 
 		con = DriverManager.getConnection(url, user, password);
+
 		stmt = con.createStatement();
+
 		rs = stmt.executeQuery(sql);
 
 		ResultSetMetaData rsmd = rs.getMetaData();
+
 		while (rs.next()) {
-			int columnIndex = 1;
+
 			for (int i = 1; i <= rsmd.getColumnCount(); i++) {
-				System.out.print(rs.getString(columnIndex) + "\t");
-				columnIndex++;
+				System.out.print(rs.getString(i) + "\t");
 			}
+
 			System.out.println("");
 		}
-
 		System.out.println("End");
-
 	}
-
 }
