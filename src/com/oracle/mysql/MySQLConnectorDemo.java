@@ -3,6 +3,7 @@ package com.oracle.mysql;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -12,7 +13,7 @@ public class MySQLConnectorDemo {
 
 		System.out.println("Start");
 
-		Class.forName("com.mysql.cj.jdbc.Driver");
+//		Class.forName("com.mysql.cj.jdbc.Driver");
 
 		String url = "jdbc:mysql://localhost:3306/oracle-demo";
 		String user = "root";
@@ -27,8 +28,14 @@ public class MySQLConnectorDemo {
 		stmt = con.createStatement();
 		rs = stmt.executeQuery(sql);
 
+		ResultSetMetaData rsmd = rs.getMetaData();
 		while (rs.next()) {
-			System.out.println(rs.getString(1));
+			int columnIndex = 1;
+			for (int i = 1; i <= rsmd.getColumnCount(); i++) {
+				System.out.print(rs.getString(columnIndex) + "\t");
+				columnIndex++;
+			}
+			System.out.println("");
 		}
 
 		System.out.println("End");
