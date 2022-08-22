@@ -13,8 +13,6 @@ public class MySQLConnectorDemo {
 
 		System.out.println("Start");
 
-//		Class.forName("com.mysql.cj.jdbc.Driver");
-
 		String url = "jdbc:mysql://localhost:3306/oracle-demo";
 		String user = "root";
 		String password = "root";
