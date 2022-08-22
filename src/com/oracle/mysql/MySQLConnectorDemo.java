@@ -26,6 +26,8 @@ public class MySQLConnectorDemo {
 		con = DriverManager.getConnection(url, user, password);
 
 		stmt = con.createStatement();
+		
+//		stmt. method for performing CRUD operations on DB 
 
 		rs = stmt.executeQuery(sql);
 
@@ -39,6 +41,13 @@ public class MySQLConnectorDemo {
 
 			System.out.println("");
 		}
+
+		rs.close();
+		stmt.close();
+		con.close();
+		
 		System.out.println("End");
 	}
 }
+
+
