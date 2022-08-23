@@ -25,7 +25,7 @@ public class PrepDemo {
 
 			stmt = con.prepareStatement(sql);
 
-			stmt.setInt(1, 106);
+			stmt.setInt(1, 108);
 			stmt.setString(2, "Vaman");
 			stmt.setDouble(3, 90000);
 
