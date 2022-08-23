@@ -11,4 +11,4 @@ insert into emp (eid, ename, salary) values (103, 'Tonu', 85000);
 insert into emp (eid, ename, salary) values (104, 'Ponu', 80000);
 insert into emp (eid, ename, salary) values (105, 'Gonu', 99000);
 
-SELECT * FROM emp;
+SELECT * FROM emp ORDER BY eid;
