@@ -17,7 +17,8 @@ public class MySQLConnectorDemo {
 		String user = "root";
 		String password = "root";
 
-		String sql = "SELECT * FROM emp";
+//		String sql = "SELECT * FROM emp "; // JOIN query 
+		String sql = "SELECT * FROM emp WHERE eid = 106"; // JOIN query 
 
 		Connection con = null;
 		Statement stmt = null;
