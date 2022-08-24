@@ -90,5 +90,27 @@ SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME ='emp';
 -- 101, 'Sonu', 90000 -- this 
 
 
+CREATE TABLE string_demo (c1 CHAR(10), c2 VARCHAR(10), c3 TEXT);
+
+DROP TABLE string_demo;
+
+
+SELECT * FROM string_demo;
+
+
+SELECT UPPER('aBcD'), LOWER('aBcD');
+
+SELECT length('aBcD');
+
+SELECT concat('aaa', 'bbb');
+
+SELECT right('9876543210', 4);
+
+
+SELECT concat(concat( 'Account ending in ', right('9876543210', 4), ' debited with Rs,100/-.'));
+
+
+
+
 
 
