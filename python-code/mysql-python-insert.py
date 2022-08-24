@@ -2,15 +2,12 @@ import mysql.connector
 
 print("Start")
 
-
-
 mydb = mysql.connector.connect(
     host="localhost",
     user="root",
     password="root",
     database="oracle-demo"
 )
-
 
 mycursor = mydb.cursor()
 
@@ -31,8 +28,6 @@ valuesToInsert = (115, "Tonu", 89000)
 mycursor.execute(sqlInsert, valuesToInsert)
 
 mydb.commit()
-
-sqlSelect = "SELECT * FROM emp ORDER BY eid"
 
 print(mycursor.rowcount, "record inserted successfully.")
 
