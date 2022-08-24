@@ -2,6 +2,8 @@ import mysql.connector
 
 print("Start")
 
+
+
 mydb = mysql.connector.connect(
     host="localhost",
     user="root",
@@ -12,12 +14,33 @@ mydb = mysql.connector.connect(
 
 mycursor = mydb.cursor()
 
-sql = "INSERT INTO emp (eid, ename, salary) VALUES (%s, %s, %s)"
-val = (112, "Soni", 98000)
-mycursor.execute(sql, val)
+sqlSelect = "SELECT * FROM emp ORDER BY eid"
+
+print(mycursor.rowcount, "record inserted successfully.")
+
+mycursor.execute(sqlSelect)
+
+myresult = mycursor.fetchall()
+
+for x in myresult:
+    print(x)
+
+sqlInsert = "INSERT INTO emp (eid, ename, salary) VALUES (%s, %s, %s)"
+valuesToInsert = (115, "Tonu", 89000)
+
+mycursor.execute(sqlInsert, valuesToInsert)
 
 mydb.commit()
 
+sqlSelect = "SELECT * FROM emp ORDER BY eid"
+
 print(mycursor.rowcount, "record inserted successfully.")
+
+mycursor.execute(sqlSelect)
+
+myresult = mycursor.fetchall()
+
+for x in myresult:
+    print(x)
 
 print("End")
