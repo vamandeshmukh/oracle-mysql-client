@@ -1,11 +1,11 @@
 <?php
 
-$url = "localhost:3306/oracle-demo";
+$url = "jdbc:mysql://localhost:3306/oracle-demo";
 $user = "root";
 $password = "root";
 
 // Create connection
-$conn = new \mysqli($url, $user, $password);
+$conn = new mysqli($url, $user, $password);
 
 // Check connection
 if ($conn->connect_error) {
