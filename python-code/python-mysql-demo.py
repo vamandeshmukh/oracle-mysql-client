@@ -1,5 +1,7 @@
 import mysql.connector
 
+print("Start")
+
 mydb = mysql.connector.connect(
     host="localhost",
     user="root",
@@ -15,3 +17,5 @@ myresult = mycursor.fetchall()
 
 for x in myresult:
     print(x)
+
+print("End")
