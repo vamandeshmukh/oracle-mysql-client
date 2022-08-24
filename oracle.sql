@@ -68,7 +68,27 @@ SELECT * FROM emps_with_high_salary;
 
 DELETE FROM emp WHERE ename = 'Aliya';
 
-INSERT INTO emp VALUES (116, 'Abcd', 95500);
+DROP VIEW emps_with_high_salary;
 
-SET SQL_SAFE_UPDATES = 0;
+INSERT INTO emp VALUES (116, 'Abcd', 95500);
+INSERT INTO emp VALUES (117, 'Aliya', 96000);
+
+SET SQL_SAFE_UPDATES = 0; -- delete works 
+SET SQL_SAFE_UPDATES = 1; -- delete does not work 
+
+SELECT * FROM emp;
+
+DESCRIBE emp;
+
+DESC emp;
+
+SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME ='emps_with_high_salary';
+
+SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME ='emp';
+
+-- 101, 'Sonu', 90000
+-- 101, 'Sonu', 90000 -- this 
+
+
+
 
