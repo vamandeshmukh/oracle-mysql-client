@@ -125,18 +125,49 @@ SELECT concat(concat( 'Account ending in ', right('9876543210', 4), ' debited wi
 -- SELECT c1, c2 FROM t1;
 
 
+SELECT 10 / 3 AS output, 10 div 3 AS output2;
 
 
 
+SELECT round(5462738.827439);
+SELECT round(5462738.827439, 2);
+SELECT round(5462738.827439, 4);
+SELECT round(5462738.827439, -1);
+SELECT round(5462738.827439, -2);
+SELECT round(5462738.827439, -3);
 
 
+SELECT sysdate();
 
 
+-- bank transfer 
+-- debit from payer's account   100 - 20 = 80  
+-- credit to payee's account    100 + 20 = 120 
 
 
+set autocommit = off;
+set autocommit = on;
 
+SELECT * from emp order by eid;
+commit; 
+rollback;
 
+update emp set salary = salary * 2 where eid = 102;
 
+create table t5 (c1 int); -- DDL operatoins == commit ;
+
+-- query optimizaton 
+
+-- DML operations - INSERT UPDATE DELETE  
+-- DQL DRL operations - SELECT 
+
+SELECT * FROM emp WHERE salary > 20000 AND salary < 40000;
+SELECT * FROM emp;
+
+CREATE TABLE t6 (c1 INT, c2 VARCHAR(10), INDEX (c2));
+
+CREATE TABLE t7 (c1 INT, c2 VARCHAR(10), c3 DOUBLE);
+CREATE INDEX t7_c3_index ON t7(c3);
 
 
 
