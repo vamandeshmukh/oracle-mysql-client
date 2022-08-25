@@ -107,7 +107,34 @@ SELECT concat('aaa', 'bbb');
 SELECT right('9876543210', 4);
 
 
-SELECT concat(concat( 'Account ending in ', right('9876543210', 4), ' debited with Rs,100/-.'));
+SELECT concat(concat( 'Account ending in ', right('9876543210', 4), ' debited with Rs,100/-.')) as message;
+
+
+
+
+
+
+
+-- CREATE TABLE t1(c1 INT, c2 VARCHAR(10));
+
+-- INSERT INTO t1 VALUES(10, 'abc');
+-- INSERT INTO t1 VALUES(10, 'abc');
+
+-- SELECT * FROM t1;
+-- SELECT c1, c2 FROM t1;
+-- SELECT c1, c2 FROM t1;
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

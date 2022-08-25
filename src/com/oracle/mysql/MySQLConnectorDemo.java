@@ -10,6 +10,9 @@ import java.sql.Statement;
 public class MySQLConnectorDemo {
 
 	public static void main(String[] args) {
+		
+//		String str = “Some text”;
+		String str2 = "Some text"; 
 
 		System.out.println("Start");
 
