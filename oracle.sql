@@ -170,5 +170,113 @@ CREATE TABLE t7 (c1 INT, c2 VARCHAR(10), c3 DOUBLE);
 CREATE INDEX t7_c3_index ON t7(c3);
 
 
+-- database - tables, indexes, views, functions, procedures, cursors, triggers, ... 
+
+SELECT upper('AbCd');
+
+-- fetch employees data sorted by salary 
+
+CREATE PROCEDURE emp_salary()
+SELECT * FROM emp ORDER BY salary;
+
+DROP PROCEDURE emp_salary;
+ 
+CALL emp_salary;
+
+CREATE FUNCTION greet(username VARCHAR(40)) RETURNS VARCHAR(50)
+DETERMINISTIC
+RETURN concat('Hi ', username, '!');
+
+
+DROP FUNCTION greet;
+
+-- 1418 
+SET GLOBAL log_bin_trust_function_creators = 1;
+
+SELECT greet('Vaman');
+
+
+
+
+
+
+SELECT * FROM emp;
+
+
+
+
+
+
+-- Create OBJECTS to withdraw, deposit, transfer money and check balance from accounts. 
+
+create table accounts(acno int primary key, name varchar(10), balance double); 
+
+insert into accounts (acno, name, balance) values(10, 'A', 50000);
+insert into accounts (acno, name, balance) values(20, 'B', 75000);
+insert into accounts (acno, name, balance) values(30, 'C', 10000);
+insert into accounts (acno, name, balance) values(40, 'D', 92000);
+insert into accounts (acno, name, balance) values(50, 'E', 48000);
+commit; 
+
+create table transactions (tid int primary key, acno int references accounts(acno), amount double, balance double); 
+
+insert into transactions (acno, amount, balance) values(10, 10000, 40000);
+
+SELECT * FROM accounts ORDER BY acno;
+SELECT * FROM transactions ORDER BY tid;
+
+-- triggers and events 
+
+
+
+-- reporting 
+
+SELECT * FROM city order by city;
+
+-- how may cities are there in this table?
+SELECT count(*) AS number_of_cities FROM city;
+
+SELECT min(city) FROM city;
+SELECT max(city) FROM city;
+
+SELECT avg(amount), min(amount), max(amount), sum(amount) FROM payment;
+
+
+SELECT SUM(Continent='Asia') AS Asia, SUM(Continent='Europe') AS Europe FROM country;
+
+SELECT * FROM country;
+
+SELECT count(country) FROM country; -- aggregate function 
+SELECT upper(country) FROM country;
+
+SELECT * FROM film;
+
+SELECT release_year, count(*) FROM film GROUP BY release_year ORDER BY release_year;
+
+SELECT DAYOFWEEK(rental_date) AS weekday, COUNT(*) AS count 
+FROM rental 
+GROUP BY DAYOFWEEK(rental_date) 
+ORDER BY DAYOFWEEK(rental_date);
+
+SELECT * FROM film;
+
+SELECT rental_duration FROM film ORDER BY rental_duration;
+
+-- SELECT unique(rental_duration) FROM film ORDER BY rental_duration;
+
+SELECT DISTINCT(rental_duration) FROM film ORDER BY rental_duration;
+
+select DISTINCT(release_year) from film ORDER BY release_year;
+
+
+SELECT ROW_NUMBER() OVER() AS Num, rental_duration, rental_rate
+FROM film 
+WHERE rental_duration =3  
+ORDER BY rental_rate DESC;
+
+
+
+
+
 
 
