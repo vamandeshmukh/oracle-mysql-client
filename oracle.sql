@@ -277,6 +277,31 @@ ORDER BY rental_rate DESC;
 
 
 
+SELECT ST_X(ST_GeomFromText('POINT(20 15)')) AS Xcoord;
 
+
+CREATE TABLE countrylanginfo ( ID int NOT NULL AUTO_INCREMENT, Info JSON DEFAULT NULL, PRIMARY KEY (ID));
+
+INSERT INTO countrylanginfo (Info) VALUES 
+('{"CountryCode": "ABW", "Languages":  
+{"Language": "Dutch", "IsOfficial":  true,"Percentage": 5.3}, 
+{"Language": "English", "IsOfficial":  false,"Percentage": 9.5}, 
+{"Language": "Papiemento", "IsOfficial": false, "Percentage": 76.7}}');
+
+
+SELECT * FROM countrylanginfo ;
+
+
+CREATE TABLE gc 
+( id INT NOT NULL PRIMARY KEY AUTO_INCREMENT, 
+my_integer INT, 
+my_integer_inc INT GENERATED ALWAYS AS (my_integer+5) VIRTUAL
+);
+
+INSERT INTO gc (my_integer) VALUES (10), (20), (30), (40), (50);
+
+INSERT INTO gc (my_integer) VALUES (330);
+
+SELECT * FROM gc;
 
 
